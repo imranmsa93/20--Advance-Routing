@@ -28,10 +28,14 @@ import RootLayout from "./pages/RootLayout";
 import Testpage from "./pages/Test";
 import EventsPage, { fetchEvents } from "./pages/Events";
 import EditEventPage from "./pages/EditEvent";
-import EventDetailPage, { fetchEventDetails, deleteEvent } from "./pages/EventDetail";
-import NewEventPage, { formAction } from "./pages/NewEvent";
+import EventDetailPage, {
+  fetchEventDetails,
+  deleteEvent,
+} from "./pages/EventDetail";
+import NewEventPage from "./pages/NewEvent";
 import EventsRootPage from "./pages/EventsRoot";
 import { Outlet } from "react-router-dom";
+import { formAction } from "./components/EventForm";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +65,7 @@ const router = createBrowserRouter([
               {
                 path: "edit",
                 element: <EditEventPage />,
-                // loader: fetchEventDetails,
+                action: formAction,
               },
             ],
           },

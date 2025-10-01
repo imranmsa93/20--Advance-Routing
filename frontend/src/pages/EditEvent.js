@@ -5,7 +5,7 @@ function EditEventPage() {
   const event = useRouteLoaderData('event-detail');
   console.log("EditEventPage ", event);
   return (
-    <EventForm event={event}/>
+    <EventForm event={event} method='PATCH'/>
   );
 }
 

@@ -1,14 +1,18 @@
 import classes from './EventItem.module.css';
 import { Link } from 'react-router-dom';
+import { useSubmit } from 'react-router-dom';
 
 
 function EventItem({ event }) {
-
+  const submit = useSubmit();
 
   function startDeleteHandler() {
-    // ...
+    const alert = window.confirm('Are you sure?');
+    if (alert) {
+      console.log('deleting...');
+      submit(null, { method: 'delete' });
+    }
   }
-
   return (
     <article className={classes.event}>
       <img src={event.image} alt={event.title} />
@@ -22,5 +26,4 @@ function EventItem({ event }) {
     </article>
   );
 }
-
 export default EventItem;

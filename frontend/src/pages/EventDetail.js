@@ -1,5 +1,6 @@
 import { useRouteLoaderData } from "react-router-dom";
 import EventItem from "../components/EventItem";
+import { redirect } from "react-router-dom";
 function EventDetailPage() {
   const event = useRouteLoaderData('event-detail');
  //  console.log("EventDetailPage " , event);
@@ -21,4 +22,14 @@ export async function fetchEventDetails({request, params}) {
      console.log("fetchEventDetails " , resData.event);
     return resData.event;
   }
+}
+export async function deleteEvent({request, params}) {
+  const eventId = params.eventId;
+  const response = await fetch('http://localhost:8080/events/' + eventId, {
+    method: request.method
+  });
+  if (!response.ok) {
+    throw response;
+  }
+  return redirect('/events');
 }

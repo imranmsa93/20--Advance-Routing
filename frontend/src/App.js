@@ -36,6 +36,7 @@ import NewEventPage from "./pages/NewEvent";
 import EventsRootPage from "./pages/EventsRoot";
 import { Outlet } from "react-router-dom";
 import { formAction } from "./components/EventForm";
+import NewsletterPage, { action as newsletterAction} from "./pages/Newsletter";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "test", element: <Testpage /> },
+      { path: "newsletter", element: <NewsletterPage /> ,  action: newsletterAction},
       {
         path: "events",
         element: <EventsRootPage />,
